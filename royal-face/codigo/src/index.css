@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Valores padrão — sobrescritos em tempo de execução pelo clinicConfig.theme (ver main.jsx) */
+@theme {
+  --color-primary: #d4af37;
+  --color-secondary: #1a1a1a;
+  --color-accent: #faf7f2;
+  --color-whatsapp: #25d366;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-accent text-secondary font-sans antialiased;
+}
+
+.eyebrow {
+  @apply text-[0.7rem] font-medium uppercase tracking-[0.3em] text-primary;
+}
+
+.section-title {
+  @apply font-serif text-3xl leading-tight font-medium md:text-5xl;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; }
+.reveal.is-visible { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-whatsapp) 55%, transparent); }
+  50% { box-shadow: 0 0 0 14px transparent; }
+}
+.pulse { animation: soft-pulse 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; }
+  .reveal.is-visible, .pulse { animation: none; }
+}
