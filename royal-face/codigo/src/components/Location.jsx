@@ -37,6 +37,11 @@ export default function Location() {
                 {info.openingHours}
               </InfoRow>
             )}
+            {info.otherLocation && (
+              <InfoRow icon={<MapPinIcon />} label={s.otherLocationLabel}>
+                {info.otherLocation}
+              </InfoRow>
+            )}
             {info.instagramUrl && (
               <InfoRow icon={<InstagramIcon />} label={s.socialLabel}>
                 <a href={info.instagramUrl} target="_blank" rel="noopener noreferrer" className="transition hover:text-primary">

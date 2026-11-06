@@ -8,7 +8,7 @@ export const clinicConfig = {
   info: {
     name: "Dra. Luigina Spera",
     subName: "Saúde e Estética Avançada",
-    tagline: "Especialista em transformar traços com naturalidade e segurança.",
+    tagline: "Harmonização glútea e facial com naturalidade, segurança e ciência em cada detalhe.",
     logoText: "LUIGINA SPERA",
     address: "Av. Otto Ribeiro, 965 - Jardim Paulista, Assis - SP, 19814-470",
     googleMapsEmbedUrl:
@@ -16,6 +16,8 @@ export const clinicConfig = {
     instagramUrl: "https://www.instagram.com/draluiginaspera/",
     instagramHandle: "@draluiginaspera",
     openingHours: "Seg a Sex • 9h às 19h",
+    // Opcional: exibido na seção Localização (fonte: linklist.bio e post de 30/10/2026 no Instagram)
+    otherLocation: "Também atende em São Paulo/SP • (11) 99652-5662",
   },
 
   theme: {
@@ -28,7 +30,7 @@ export const clinicConfig = {
   seo: {
     title: "Dra. Luigina Spera | Saúde e Estética Avançada em Assis - SP",
     description:
-      "Estética avançada e harmonização com naturalidade e segurança em Assis - SP. Avaliação 5,0 no Google. Agende sua avaliação pelo WhatsApp.",
+      "Harmonização glútea BrazilianBooty®, harmonização facial, lipedema e emagrecimento em Assis - SP. Nota 5,0 no Google. Agende sua avaliação pelo WhatsApp.",
   },
 
   whatsapp: {
@@ -97,6 +99,7 @@ export const clinicConfig = {
       addressLabel: "Endereço",
       hoursLabel: "Horário de atendimento",
       socialLabel: "Instagram",
+      otherLocationLabel: "Outra unidade",
       mapTitle: "Mapa de localização da clínica",
     },
     finalCta: {
@@ -110,32 +113,35 @@ export const clinicConfig = {
     name: "Dra. Luigina Spera",
     // Formação conforme a bio do Instagram. TODO: adicionar nº do conselho (ex.: CRM/CRBM)
     credentials: "UNESP • UEM  |  Harvard (Boston) • Madri • Parma",
+    // Textos baseados na bio e nas legendas do Instagram @draluiginaspera (nov/2026)
     bio: [
-      "Com mais de 10 anos de experiência em estética avançada, minha missão é realçar a beleza única de cada paciente, sempre com naturalidade e segurança.",
-      "Acredito que o melhor resultado é aquele que valoriza quem você já é — sem exageros, com técnica, ciência e um olhar artístico.",
+      "Ciência em cada detalhe. Com formação no Brasil (UNESP e UEM) e no exterior — Harvard (Boston), Madri e Parma —, a Dra. Luigina Spera une técnica, ciência e um olhar individualizado para cada paciente.",
+      "Cada paciente carrega uma história, uma insegurança e um motivo diferente para estar ali. Acompanhar pessoas recuperando a confiança e voltando a se sentir bem é o que move o seu trabalho.",
+      "Saúde e beleza começam de dentro para fora: do protocolo estético aos cuidados com a pele e a nutrição, tudo parte de uma avaliação individualizada.",
     ],
+    // Somente números verificáveis (Google Maps e Instagram)
     stats: [
-      { value: "+10", label: "Anos de experiência" },
-      { value: "+5 mil", label: "Procedimentos realizados" },
-      { value: "100%", label: "Produtos certificados" },
+      { value: "5,0", label: "Nota no Google" },
+      { value: "11 mil", label: "Seguidores no Instagram" },
+      { value: "4", label: "Países de formação" },
     ],
   },
 
   differentials: [
     {
       icon: "shield",
-      title: "Segurança em primeiro lugar",
-      description: "Produtos aprovados pela ANVISA e protocolos rigorosos de biossegurança.",
+      title: "Ciência em cada detalhe",
+      description: "Formação internacional e protocolos indicados com critério, sempre prezando pela saúde.",
     },
     {
       icon: "sparkles",
-      title: "Naturalidade",
-      description: "Resultados harmônicos que respeitam a sua identidade.",
+      title: "Naturalidade, sem exageros",
+      description: "Resultados harmônicos que respeitam a sua anatomia e a sua identidade.",
     },
     {
       icon: "heart",
-      title: "Atendimento exclusivo",
-      description: "Acompanhamento próximo do primeiro contato ao pós-procedimento.",
+      title: "De dentro para fora",
+      description: "Cuidado que continua em casa, com cosmética coreana prescrita e atenção à nutrição.",
     },
   ],
 
