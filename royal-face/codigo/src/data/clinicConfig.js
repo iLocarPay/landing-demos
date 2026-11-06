@@ -56,15 +56,13 @@ export const clinicConfig = {
     { label: "Localização", href: "#localizacao" },
   ],
 
+  // Fotos do Instagram @draluiginaspera, recortadas e otimizadas em public/images/
+  // (caminhos relativos: funcionam no Vite, na Vercel e na demo de arquivo único)
   media: {
-    heroBackground:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200",
-    doctorPhoto:
-      "https://images.unsplash.com/photo-1594824813566-7885a6a117b4?q=80&w=800",
-    clinicAmbience: [
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600",
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600",
-    ],
+    heroBackground: "", // opcional: foto de fundo do topo (vazio = fundo escuro liso)
+    heroPortrait: "images/hero-retrato.jpg", // opcional: retrato ao lado do título
+    doctorPhoto: "images/sobre-madri.jpg",
+    clinicAmbience: ["images/espaco-clinica-sp.jpg", "images/espaco-diplomas.jpg"],
   },
 
   hero: {
@@ -146,14 +144,13 @@ export const clinicConfig = {
   ],
 
   // Fonte: Instagram @draluiginaspera e linklist.bio/draluiginaspera (nov/2026)
-  // TODO: trocar as imagens por fotos reais da clínica / dos procedimentos
-  services: [
+    services: [
     {
       id: "gluteo",
       name: "Harmonização Glútea BrazilianBooty®",
       description:
         "Protocolo assinatura para contorno, projeção e correção da depressão trocantérica (o “culote” para dentro), planejado de acordo com a sua anatomia para um resultado harmônico e natural.",
-      image: "https://images.unsplash.com/photo-1512290900676-26c2a7a795b1?q=80&w=500",
+      image: "images/servico-gluteo.jpg",
       tag: "Assinatura",
     },
     {
@@ -161,7 +158,7 @@ export const clinicConfig = {
       name: "Harmonização Facial",
       description:
         "Realce dos traços com equilíbrio e naturalidade — ideal também para noivas que querem estar radiantes no grande dia, sem perder a própria identidade.",
-      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500",
+      image: "images/servico-facial.jpg",
       tag: "Mais Procurado",
     },
     {
@@ -169,7 +166,7 @@ export const clinicConfig = {
       name: "Tratamento de Lipedema",
       description:
         "Abordagem individualizada para o lipedema, com foco no alívio dos sintomas, no contorno corporal e na qualidade de vida.",
-      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=500",
+      image: "images/servico-lipedema.jpg",
       tag: "Saúde & Bem-estar",
     },
     {
@@ -177,7 +174,7 @@ export const clinicConfig = {
       name: "Emagrecimento com PNL",
       description:
         "Programa de emagrecimento que une saúde, avaliação individualizada e Programação Neurolinguística (PNL) para mudanças reais e duradouras — de dentro para fora.",
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=500",
+      image: "images/servico-emagrecimento.jpg",
       tag: "Exclusivo",
     },
   ],

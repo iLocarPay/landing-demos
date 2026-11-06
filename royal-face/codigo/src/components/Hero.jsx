@@ -7,16 +7,26 @@ export default function Hero() {
 
   return (
     <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden bg-secondary">
-      <img
-        src={media.heroBackground}
-        alt=""
-        fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover opacity-55"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/75 to-secondary/20" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-secondary/80 to-transparent" />
+      {media.heroBackground && (
+        <>
+          <img
+            src={media.heroBackground}
+            alt=""
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover opacity-55"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/75 to-secondary/20" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-secondary/80 to-transparent" />
+        </>
+      )}
+      <div className="pointer-events-none absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-primary/10 blur-3xl" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 pb-20 pt-32 md:px-8">
+      <div
+        className={`relative mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-20 pt-32 md:px-8 ${
+          media.heroPortrait ? "lg:grid-cols-[1.15fr_0.85fr]" : ""
+        }`}
+      >
+        <div>
         <div className="max-w-2xl text-center text-accent sm:text-left">
           <p className="eyebrow mb-6">{hero.eyebrow}</p>
           <h1 className="font-serif text-5xl leading-[1.05] font-medium md:text-7xl">{info.name}</h1>
@@ -53,6 +63,19 @@ export default function Hero() {
             </li>
           ))}
         </ul>
+        </div>
+
+        {media.heroPortrait && (
+          <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
+            <div className="absolute -bottom-4 -right-4 h-full w-full rounded-t-[12rem] rounded-b-2xl border border-primary/50" />
+            <img
+              src={media.heroPortrait}
+              alt={info.name}
+              fetchPriority="high"
+              className="relative aspect-[4/5] w-full rounded-t-[12rem] rounded-b-2xl object-cover object-top shadow-2xl shadow-black/40"
+            />
+          </div>
+        )}
       </div>
     </section>
   );
