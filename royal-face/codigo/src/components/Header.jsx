@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { clinicConfig } from "../data/clinicConfig.js";
+import { clinicData } from "../config/clinicData.js";
 import { whatsappLink } from "../lib/whatsapp.js";
 import { MenuIcon, WhatsAppIcon } from "./Icons.jsx";
 
 export default function Header() {
-  const { info, navigation, whatsapp } = clinicConfig;
+  const { brand, content } = clinicData;
+  const { navigation, whatsapp, ui } = content;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,7 +31,7 @@ export default function Header() {
             solid ? "text-secondary" : "text-accent"
           }`}
         >
-          {info.logoText}
+          {brand.logoText}
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">
@@ -62,7 +63,7 @@ export default function Header() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label={clinicConfig.ui.menuLabel}
+            aria-label={ui.menuLabel}
             className={`lg:hidden ${solid ? "text-secondary" : "text-accent"}`}
           >
             <MenuIcon open={open} />

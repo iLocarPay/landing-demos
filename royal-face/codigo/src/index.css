@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Valores padrão — sobrescritos em tempo de execução pelo clinicConfig.theme (ver main.jsx) */
+/* Valores padrão — sobrescritos em tempo de execução por clinicData.theme (ver main.jsx) */
 @theme {
   --color-primary: #d4af37;
   --color-secondary: #1a1a1a;

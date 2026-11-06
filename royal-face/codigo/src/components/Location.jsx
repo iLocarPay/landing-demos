@@ -1,4 +1,5 @@
-import { clinicConfig } from "../data/clinicConfig.js";
+import { clinicData } from "../config/clinicData.js";
+import { mapsEmbedUrl } from "../lib/whatsapp.js";
 import WhatsAppButton from "./WhatsAppButton.jsx";
 import { ClockIcon, InstagramIcon, MapPinIcon } from "./Icons.jsx";
 
@@ -17,8 +18,8 @@ function InfoRow({ icon, label, children }) {
 }
 
 export default function Location() {
-  const { info, sections } = clinicConfig;
-  const s = sections.location;
+  const { brand, content } = clinicData;
+  const s = content.location;
 
   return (
     <section id="localizacao" className="bg-white py-24 md:py-32">
@@ -30,22 +31,22 @@ export default function Location() {
 
           <div className="space-y-7">
             <InfoRow icon={<MapPinIcon />} label={s.addressLabel}>
-              {info.address}
+              {brand.address}
             </InfoRow>
-            {info.openingHours && (
+            {brand.openingHours && (
               <InfoRow icon={<ClockIcon />} label={s.hoursLabel}>
-                {info.openingHours}
+                {brand.openingHours}
               </InfoRow>
             )}
-            {info.otherLocation && (
+            {brand.otherLocation && (
               <InfoRow icon={<MapPinIcon />} label={s.otherLocationLabel}>
-                {info.otherLocation}
+                {brand.otherLocation}
               </InfoRow>
             )}
-            {info.instagramUrl && (
+            {brand.instagramUrl && (
               <InfoRow icon={<InstagramIcon />} label={s.socialLabel}>
-                <a href={info.instagramUrl} target="_blank" rel="noopener noreferrer" className="transition hover:text-primary">
-                  {info.instagramHandle || info.instagramUrl}
+                <a href={brand.instagramUrl} target="_blank" rel="noopener noreferrer" className="transition hover:text-primary">
+                  {brand.instagramHandle || brand.instagramUrl}
                 </a>
               </InfoRow>
             )}
@@ -57,7 +58,7 @@ export default function Location() {
         <div className="min-h-[380px] overflow-hidden rounded-2xl ring-1 ring-secondary/10 lg:col-span-3">
           <iframe
             title={s.mapTitle}
-            src={info.googleMapsEmbedUrl}
+            src={mapsEmbedUrl()}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="h-full min-h-[380px] w-full border-0 grayscale-[35%]"

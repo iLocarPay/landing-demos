@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { clinicConfig } from "../data/clinicConfig.js";
+import { clinicData } from "../config/clinicData.js";
 import { whatsappLink } from "../lib/whatsapp.js";
 import { WhatsAppIcon } from "./Icons.jsx";
 
 export default function FloatingWhatsApp() {
-  const { whatsapp } = clinicConfig;
+  const { whatsapp } = clinicData.content;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -21,14 +21,14 @@ export default function FloatingWhatsApp() {
         href={whatsappLink()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={whatsapp.floatingButtonLabel}
-        title={whatsapp.floatingButtonLabel}
+        aria-label={whatsapp.floatingLabel}
+        title={whatsapp.floatingLabel}
         className="pulse fixed bottom-6 right-6 z-50 hidden h-16 w-16 items-center justify-center rounded-full bg-whatsapp text-white shadow-xl transition-transform hover:scale-110 md:flex"
       >
         <WhatsAppIcon className="h-8 w-8" />
       </a>
 
-      {/* Mobile: barra fixa inferior (aparece após o hero) */}
+      {/* Mobile: barra fixa inferior (aparece após o topo) */}
       <div
         className={`fixed inset-x-0 bottom-0 z-50 border-t border-secondary/10 bg-accent/95 p-3 backdrop-blur-md transition-transform duration-500 md:hidden ${
           visible ? "translate-y-0" : "translate-y-full"

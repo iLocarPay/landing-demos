@@ -1,8 +1,8 @@
-import { clinicConfig } from "../data/clinicConfig.js";
+import { clinicData } from "../config/clinicData.js";
 import WhatsAppButton from "./WhatsAppButton.jsx";
 
 export default function FinalCta() {
-  const s = clinicConfig.sections.finalCta;
+  const s = clinicData.content.finalCta;
   return (
     <section className="relative overflow-hidden bg-secondary py-24 text-center text-accent md:py-28">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />

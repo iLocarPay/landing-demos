@@ -1,4 +1,4 @@
-import { clinicConfig } from "../data/clinicConfig.js";
+import { clinicData } from "../config/clinicData.js";
 import { whatsappLink } from "../lib/whatsapp.js";
 import { WhatsAppIcon } from "./Icons.jsx";
 
@@ -11,16 +11,14 @@ const styles = {
 // Botão principal de conversão. variant: "gold" | "dark" | "light"
 export default function WhatsAppButton({
   href = whatsappLink(),
-  text = clinicConfig.whatsapp.ctaText,
+  text = clinicData.content.whatsapp.ctaText,
   variant = "gold",
   showSubText = false,
   align = "start",
   className = "",
 }) {
   return (
-    <div
-      className={`flex flex-col gap-2.5 items-center ${align === "start" ? "sm:items-start" : ""} ${className}`}
-    >
+    <div className={`flex flex-col gap-2.5 items-center ${align === "start" ? "sm:items-start" : ""} ${className}`}>
       <a
         href={href}
         target="_blank"
@@ -33,7 +31,7 @@ export default function WhatsAppButton({
       {showSubText && (
         <span className="flex items-center gap-2 text-xs opacity-80">
           <span className="h-1.5 w-1.5 rounded-full bg-whatsapp" />
-          {clinicConfig.whatsapp.subText}
+          {clinicData.content.whatsapp.subText}
         </span>
       )}
     </div>

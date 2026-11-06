@@ -1,7 +1,14 @@
-import { clinicConfig } from "../data/clinicConfig.js";
+import { clinicData } from "../config/clinicData.js";
 import { useReveal } from "../lib/useReveal.js";
 import SectionHeading from "./SectionHeading.jsx";
 import { GoogleIcon, StarIcon } from "./Icons.jsx";
+
+const initials = (name) =>
+  name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("");
 
 function ReviewCard({ review }) {
   const ref = useReveal();
@@ -10,7 +17,7 @@ function ReviewCard({ review }) {
       <div className="flex items-center justify-between">
         <div className="flex text-primary">
           {Array.from({ length: 5 }).map((_, i) => (
-            <StarIcon key={i} filled={i < review.stars} />
+            <StarIcon key={i} filled={i < (review.stars ?? 5)} />
           ))}
         </div>
         <GoogleIcon className="h-5 w-5" />
@@ -32,11 +39,7 @@ function ReviewCard({ review }) {
             aria-hidden="true"
             className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary font-serif text-lg text-primary"
           >
-            {review.author
-              .split(" ")
-              .map((w) => w[0])
-              .slice(0, 2)
-              .join("")}
+            {initials(review.author)}
           </span>
         )}
         <div>
@@ -49,8 +52,9 @@ function ReviewCard({ review }) {
 }
 
 export default function Reviews() {
-  const { googleReviews, sections } = clinicConfig;
-  const s = sections.reviews;
+  const { googleReviews, brand, content } = clinicData;
+  const s = content.reviews;
+  if (!googleReviews?.items?.length) return null;
 
   return (
     <section id="avaliacoes" className="bg-accent py-24 md:py-32">
@@ -66,7 +70,7 @@ export default function Reviews() {
             ))}
           </span>
           <span className="hidden text-xs uppercase tracking-wider text-secondary/55 sm:inline">
-            {googleReviews.totalReviews}
+            {googleReviews.totalReviews} {s.countSuffix}
           </span>
         </div>
 
@@ -78,16 +82,18 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <a
-            href={googleReviews.googleMapsLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block border-b border-primary pb-1 text-xs font-medium uppercase tracking-[0.2em] transition hover:text-primary"
-          >
-            {s.linkText}
-          </a>
-        </div>
+        {brand.googleMapsUrl && (
+          <div className="mt-12 text-center">
+            <a
+              href={brand.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border-b border-primary pb-1 text-xs font-medium uppercase tracking-[0.2em] transition hover:text-primary"
+            >
+              {s.linkText}
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
